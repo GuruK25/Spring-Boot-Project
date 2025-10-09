@@ -16,8 +16,8 @@ public class UserDto {
     @Pattern(regexp =  "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$", message = "Password should contain one uppercase lowercase special character and number and min 8 digits")
     private String password;
     @DecimalMin(value = "6000000000", message = "Enter proper Mobile Number")
-    @DecimalMax(value = "999999999", message = "Enter proper Mobile Number")
+    @DecimalMax(value = "9999999999", message = "Enter proper Mobile Number")
     private Long mobile;
-    @NotEmpty
+    @NotEmpty(message = "Role should be present")
     private String role;
 }

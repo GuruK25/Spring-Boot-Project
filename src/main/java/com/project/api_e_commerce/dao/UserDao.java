@@ -1,6 +1,7 @@
 package com.project.api_e_commerce.dao;
 
 import com.project.api_e_commerce.entity.User;
+import com.project.api_e_commerce.exception.DataNotFoundException;
 import com.project.api_e_commerce.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -27,5 +28,10 @@ public class UserDao {
     {
         return !userRepository.existsByMobile(mobile);
     }
+
+    public User findByEmail(String email) {
+        return userRepository.findByEmail(email).orElseThrow(() -> new  DataNotFoundException("Email does not exist"));
+    }
+
 
 }
